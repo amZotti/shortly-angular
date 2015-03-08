@@ -4,14 +4,16 @@ angular.module('shortly.services', [])
   var service = {};
   service.getLinks = function(){
     return $http.get('/api/links');
-    // .success(function(data) {
-    //   console.log(data);
-    //   return data;
-    // });
   };
 
-  service.postLink = function(link) {
-    $http.post('/api/links', {url: link});
+   service.postLink = function(link) {
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: link
+   }).then(function(res) {
+     return res.data;
+   })
   }
   return service;
 })

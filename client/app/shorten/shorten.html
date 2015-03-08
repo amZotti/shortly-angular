@@ -1,7 +1,10 @@
 
 <a href="/#/links">Links</a>
 <div id='container'>
-  <div ng-controller="ShortenController as shorten"></div>
+  <div ng-controller="ShortenController">
+      url: <input type='url' ng-model='link.url' /> <br />
+      <input type='submit' ng-click='addLink()' />
+  </div>
 </div>
 
 

@@ -4,10 +4,9 @@ angular.module('shortly.shorten', [])
 
   $scope.link = {};
 
-  $scope.addLink = function() {
-    console.log($location);
-    $http.post('/api/links', {url: $location}).success(function(data) {
-      $scope.link[$location] = data;
+  $scope.addLink = function(link) {
+    Links.postLink($scope.link).then(function() {
+      $location.path('/links');
     });
   };
 });
